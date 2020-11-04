@@ -40,4 +40,25 @@ public class IsValid {
         }
         return stack.empty();
     }
+    
+    //更好的解题思路
+    public boolean isValid1(String s) {
+        if(s.length()%2!=0){
+            return false;
+        }
+        Stack<Character> stack = new Stack<>();
+        for(char c : s.toCharArray()){
+            //遇到左括号则将它对应的右括号入栈
+            if(c=='{'){
+                stack.push('}');
+            } else if (c=='['){
+                stack.push(']');
+            } else if (c=='('){
+                stack.push(')');
+            } else if(stack.isEmpty() || c!=stack.pop()){
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
 }
