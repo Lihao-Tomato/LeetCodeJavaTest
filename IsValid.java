@@ -41,7 +41,7 @@ public class IsValid {
         return stack.empty();
     }
     
-    //更好的解题思路
+    //更好的解题方法
     public boolean isValid1(String s) {
         if(s.length()%2!=0){
             return false;
