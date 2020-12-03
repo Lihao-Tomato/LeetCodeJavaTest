@@ -1,6 +1,18 @@
+import java.util.*;
 /* *构建乘积数组：
  * 题目链接
  * https://www.nowcoder.com/practice/94a4d381a68b47b7a8bed86f2975db46?tpId=13&&tqId=11204&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+ * 解题思路：根据题目描述，如果可以使用除法，就很简单。但是要求不能使用。
+ * 假设：left[i] = A[0]*...*A[i-1]
+ *      right[i] = A[i+1]*...*A[n-1]
+ *      所以：B[i] = left[i] * right[i]
+ * 这样就避免使用了除法。但是如果对每个B[i], 0<=i<n,都这么求，显然时间复杂度太高。
+ *      left[i+1] = A[0]*...A[i-1]*A[i]
+ *      right[i+1] = A{i+2]*...*A[n-1]
+ * 于是:
+ *      left[i+1] = left[i] * A[i]
+ *      right[i] = right[i+1] * A[i+1]
+ *      所以，我们可以先把所有的left[i]求出，right[i]求出
  * */
 
 package leetcode;
