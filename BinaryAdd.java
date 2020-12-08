@@ -14,14 +14,12 @@ public class BinaryAdd {
         System.out.println("sum=" +sum);
 
     }
-    public static int add(int num1, int num2){
-        int result, ans;
-        do {
-            result = num1 ^ num2; // 不带进位的加法
-            ans = (num1&num2) << 1; // 进位
-            num1 = result;
-            num2 = ans;
-        } while (ans != 0); // 进位为0
-        return result;
+public static int add(int num1, int num2){
+     while (num2!=0) {
+         int temp = num1^num2;
+         num2 = (num1&num2)<<1;
+         num1 = temp;
+     }
+     return num1;
     }
 }
